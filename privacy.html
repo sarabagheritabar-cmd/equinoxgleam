@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equinox Gleam - Environmental Services & Consultation</title>
+  <link rel="icon" href="favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --color-primary: oklch(0.55 0.15 25);
+      --color-primary-light: oklch(0.75 0.10 25);
+      --color-surface: oklch(0.95 0.02 25);
+      --color-surface-dark: oklch(0.20 0.05 250);
+      --color-hero-background: #1a1a2e;
+      --color-text-dark: oklch(0.25 0.05 25);
+      --color-text-light: oklch(0.98 0.01 25);
+      --font-heading: 'Raleway', sans-serif;
+      --font-body: 'Raleway', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text-dark);
+      background-color: var(--color-surface);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    .neomorphic-card {
+      background: var(--color-surface);
+      box-shadow: 8px 8px 16px oklch(0.85 0.02 25), -8px -8px 16px oklch(0.99 0.01 25);
+      border-radius: 12px;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .neomorphic-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .btn-outline-primary {
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+      border-radius: 12px;
+      padding: 0.75rem 1.75rem;
+      transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    }
+
+    .btn-outline-primary:hover {
+      background-color: var(--color-primary);
+      color: var(--color-text-light);
+    }
+
+    .hexagon {
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hexagon-hover:hover .hexagon-image {
+      transform: scale(1.1);
+      filter: brightness(0.8);
+    }
+    .hexagon-image {
+      transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    }
+
+    .hero-bg {
+      background-color: var(--color-hero-background);
+    }
+
+    .section-spacing {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+
+    .bento-grid > div {
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 8px 8px 16px oklch(0.85 0.02 25), -8px -8px 16px oklch(0.99 0.01 25); /* Neomorphic effect */
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .bento-grid > div:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    .footer-dark-bg {
+      background-color: var(--color-hero-background); /* Using hero_background for footer specified in JSON */
+      color: var(--color-text-light);
+    }
+
+    /* Accessibility: Ensure sufficient contrast */
+    .hero-bg h1, .hero-bg p, .footer-dark-bg p, .footer-dark-bg a {
+      color: var(--color-text-light) !important;
+    }
+    .neomorphic-surface {
+      background: var(--color-surface);
+    }
+  </style>
+</head>
+<body class="antialiased">
+  <header class="sticky top-0 z-50 bg-white shadow-md py-4 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="#hero" class="text-2xl font-bold text-gray-900 leading-none">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" class="inline-block mr-2" style="transform: translateY(-2px);">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM10.7071 7.29289C10.3166 6.90237 9.68342 6.90237 9.29289 7.29289L6.29289 10.2929C5.90237 10.6834 5.90237 11.3166 6.29289 11.7071L9.29289 14.7071C9.68342 15.0976 10.3166 15.0976 10.7071 14.7071C11.0976 14.3166 11.0976 13.6834 10.7071 13.2929L9.41421 12L10.7071 10.7071C11.0976 10.3166 11.0976 9.68342 10.7071 9.29289L10.7071 9.29289L10.7071 7.29289ZM13 18C13 18.5523 12.5523 19 12 19C11.4477 19 11 18.5523 11 18V8C11 7.44772 11.4477 7 12 7C12.5523 7 13 7.44772 13 8V18Z" fill="var(--color-primary)"></path>
+          </svg>
+          Equinox Gleam
+        </a>
+      </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">About</a>
+        <a href="#services" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Services</a>
+        <a href="#impact" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Impact</a>
+        <a href="#testimonials" class="text-gray-600 hover:text-gray-900 transition-colors duration-200">Testimonials</a>
+      </div>
+      <div class="hidden md:block">
+        <a href="#contact" class="btn-outline-primary">Get Consultation</a>
+      </div>
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="md:hidden hidden bg-white py-2 shadow-md">
+      <a href="#about" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">About</a>
+      <a href="#services" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Services</a>
+      <a href="#impact" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Impact</a>
+      <a href="#testimonials" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Testimonials</a>
+      <a href="#contact" class="block mx-4 my-2 text-center btn-outline-primary">Get Consultation</a>
+    </div>
+  </header>
+<main>
+<style>
+  #privacy-policy-section {
+    padding-top: 7rem; 
+  }
+</style>
+<section id="privacy-policy-section">
+    <h2 style="font-size: 1.875rem; font-weight: 700; margin-bottom: 1.5rem;">Privacy Policy of Equinox Gleam</h2>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 1rem;">Equinox Gleam is committed to protecting the privacy of your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our site, detailing our eco-friendly cleaning, sustainable waste management, and carbon footprint reduction consultation services. Please read this policy carefully. If you do not agree with the terms of this privacy policy, please do not access our online platform.</p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">Information We Collect</h3>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 1rem;">We collect information that identifies, relates to, describes, references, is capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular consumer or device ("personal data").</p>
+    <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: 2rem;">
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>Personal Identifiers:</strong> This includes your name, email address, postal address, and telephone number, collected when you inquire about our services or subscribe to our newsletters.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>Professional Information:</strong> If you are a business client, we may collect your company name, business address, and other relevant business details to provide our environmental services.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>Usage Data:</strong> Information about how you access and use our site, such as your IP address, browser type, browser version, the pages of our site that you visit, the time and date of your visit, and the time spent on those pages.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>Cookies and Tracking Technologies:</strong> We use cookies and similar tracking technologies to track the activity on our service and hold certain information.</li>
+    </ul>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">How We Use Your Information</h3>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 1rem;">We may use the information collected from you for several purposes:</p>
+    <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: 2rem;">
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;">To present our site and its content to you.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;">To provide you with information, products, or services that you request from us.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;">To fulfill any other purpose for which you provide it.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;">To improve our site and services, ensuring the content is presented in the most effective manner for you and for your computer.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;">For internal research and analytical purposes, to enhance our environmental solutions.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;">To send you marketing communications, if you have opted in to receive them, regarding our eco-friendly services.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;">To comply with legal obligations and respond to lawful requests.</li>
+    </ul>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">Disclosure of Your Information</h3>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 1rem;">We may disclose aggregated information about our users, and information that does not identify any individual, without restriction. We may disclose personal data that we collect or you provide:</p>
+    <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: 2rem;">
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>To Contractors, Service Providers, and Other Third Parties:</strong> We may share data with vendors, service providers, and consultants who need access to such information to carry out work on our behalf. These parties are contractually bound to keep personal data confidential and use it only for the purposes for which we disclose it to them.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>For Legal Obligations:</strong> To comply with any court order, law, or legal process, including to respond to any government or regulatory request.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>To Enforce Rights:</strong> To enforce or apply our terms of use and other agreements, including for billing and collection purposes.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>Business Transfers:</strong> In the event of a merger, divestiture, restructuring, reorganization, dissolution, or other sale or transfer of some or all of Equinox Gleam's assets.</li>
+    </ul>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">Data Security</h3>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 1rem;">We have implemented measures designed to secure your personal data from accidental loss and from unauthorized access, use, alteration, and disclosure. All information you provide to us is stored on secure servers behind firewalls. However, the safety and security of your information also depend on you. Where we have given you (or where you have chosen) a password for access to certain parts of our site, you are responsible for keeping this password confidential. We ask you not to share your password with anyone.</p>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 2rem;">Unfortunately, the transmission of information via the internet is not completely secure. Although we do our best to protect your personal data, we cannot guarantee the security of your personal data transmitted to our site. Any transmission of personal data is at your own risk. We are not responsible for circumvention of any privacy settings or security measures contained on the site.</p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">Your Data Protection Rights (GDPR)</h3>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 1rem;">If you are a resident of the European Economic Area (EEA), you have certain data protection rights. Equinox Gleam aims to take reasonable steps to allow you to correct, amend, delete, or limit the use of your Personal Data.</p>
+    <ul style="list-style: disc; padding-left: 1.5rem; margin-bottom: 2rem;">
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>The Right to Access:</strong> You have the right to request copies of your personal data.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>The Right to Rectification:</strong> You have the right to request that we correct any information you believe is inaccurate or complete information you believe is incomplete.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>The Right to Erasure:</strong> You have the right to request that we erase your personal data, under certain conditions.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>The Right to Restrict Processing:</strong> You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>The Right to Object to Processing:</strong> You have the right to object to our processing of your personal data, under certain conditions.</li>
+        <li style="font-size: 1rem; line-height: 1.5; margin-bottom: 0.75rem;"><strong>The Right to Data Portability:</strong> You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+    </ul>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">Children's Privacy</h3>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 2rem;">Our site is not intended for children under 16 years of age. No one under age 16 may provide any personal data to or on our site. We do not knowingly collect personal data from children under 16. If you are under 16, do not use or provide any information on this site or through any of its features.</p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">Changes to Our Privacy Policy</h3>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 2rem;">It is our policy to post any changes we make to our privacy policy on this page. The date the privacy policy was last revised is identified at the top of the page. You are responsible for ensuring we have an up-to-date active and deliverable email address for you, and for periodically visiting our site and this privacy policy to check for any changes.</p>
+
+    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; margin-top: 2rem;">Contact Information</h3>
+    <p style="font-size: 1rem; line-height: 1.5; margin-bottom: 1rem;">To ask questions or comment about this privacy policy and our privacy practices, contact us at:</p>
+    <address style="font-size: 1rem; line-height: 1.5; margin-top: 1rem; margin-bottom: 2rem; font-style: normal;">
+        <span style="display: block; margin-bottom: 0.25rem;">Equinox Gleam</span>
+        <span style="display: block; margin-bottom: 0.25rem;">2592 Atlantic Avenue</span>
+        <span style="display: block; margin-bottom: 0.25rem;">New York, NY 11207</span>
+        <span style="display: block; margin-bottom: 0.25rem;">USA</span>
+    </address>
+</section>
+</main>
+<footer id="contact" class="footer-dark-bg section-spacing">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="md:text-left text-center">
+          <h2 class="text-4xl font-bold mb-4">Start Designing Your Green Future</h2>
+          <p class="text-lg mb-8 text-gray-300">Reach out to Equinox Gleam to begin an environmental consultation or schedule our sustainable services today. We're ready to help you make a tangible difference.</p>
+        </div>
+        <div class="md:text-right text-center">
+          <div class="space-y-4 mb-8">
+            <p class="text-lg"><strong>Address:</strong> 2592 Atlantic Avenue, New York, NY 11207, USA</p>
+            <p class="text-lg"><strong>Phone:</strong> <a href="tel:+13052659669" class="text-var(--color-primary-light) hover:underline">+1 (305) 265-9669</a></p>
+            <p class="text-lg"><strong>Email:</strong> <a href="mailto:info@equinoxgleam.com" class="text-var(--color-primary-light) hover:underline">info@equinoxgleam.com</a></p>
+          </div>
+          <a href="mailto:info@equinoxgleam.com" class="btn-outline-primary inline-block text-lg px-8 py-4 border-white text-white hover:bg-white hover:text-var(--color-hero-background) transition-all duration-300">Email Equinox Gleam Directly</a>
+        </div>
+      </div>
+
+      <hr class="my-12 border-gray-700">
+
+      <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <p class="mb-4 md:mb-0">© 2024 Equinox Gleam. Driving environmental sustainability.</p>
+        <div class="flex space-x-6">
+          <a href="./privacy.html" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
+          <a href="./tos.html" class="hover:text-white transition-colors duration-200">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+
+    
+    <div id="cookie-consent-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 text-white p-4 flex items-center justify-between text-sm z-[9999] opacity-0 transition-opacity duration-500 ease-in-out">
+      <p>This website uses cookies to ensure you get the best experience. By continuing to use our site, you accept our use of cookies.</p>
+      <button id="accept-cookies" class="ml-4 px-4 py-2 bg-var(--color-primary) text-white rounded-md hover:bg-var(--color-primary-light) focus:outline-none focus:ring-2 focus:ring-var(--color-primary-light)">Accept</button>
+    </div>
+    <script>
+      // Mobile menu toggle
+      document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Cookie Consent Logic
+      const cookieBanner = document.getElementById('cookie-consent-banner');
+      const acceptButton = document.getElementById('accept-cookies');
+      const cookieName = 'consent_Equinox Gleam_cookies'; // Unique cookie name prefix
+
+      function setCookie(name, value, days) {
+        const d = new Date();
+        d.setTime(d.getTime() + (days*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+      }
+
+      function getCookie(name) {
+        let nameEQ = name + "=";
+        let ca = document.cookie.split(';');
+        for(let i=0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        if (!getCookie(cookieName)) {
+          setTimeout(() => { // Introduce a slight delay for aesthetic fade-in
+            cookieBanner.classList.remove('opacity-0');
+            cookieBanner.classList.add('opacity-100');
+          }, 1000);
+        } else {
+          cookieBanner.style.display = 'none'; // Hide if cookie already set
+        }
+
+        acceptButton.addEventListener('click', () => {
+          setCookie(cookieName, 'accepted', 365); // Store consent for 1 year
+          cookieBanner.classList.remove('opacity-100');
+          cookieBanner.classList.add('opacity-0');
+          setTimeout(() => {
+            cookieBanner.style.display = 'none';
+          }, 500); // Allow fade-out to complete
+        });
+      });
+    </script>
+  </footer>
+</body>
+</html>
